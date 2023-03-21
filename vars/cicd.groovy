@@ -14,3 +14,7 @@ def newTest(jobname1)
 {
   sh "java -jar /var/lib/jenkins/workspace/${jobname1}/testing.jar"
 }
+def newDelivery(jobname2,ip2,appname2)
+{
+  sh "scp /var/lib/jenkins/workspace/${jobname2}/webapp/target/webapp.war ubuntu@${ip2}:/var/lib/tomcat9/webapps/${appname2}.war"
+}
